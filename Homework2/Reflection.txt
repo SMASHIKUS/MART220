@@ -1,0 +1,10 @@
+    I did this assignment a little differently. I opted to not use generetive AI but I still wanted to be able to reflect on another piece so I went online and found a
+sketch that someone else had done with p5.js and made some of my own additions and improvements. I have to say I'm quite pleased with the result—it looks super
+trippy and I'll probably turn it into a screensaver at some point. I added movement and screen wrapping to the shapes, gave them a faint trail and turned the 
+background black. I also changed the var to let to reflect a more modern method. I think the additions really changed the feeling of the entire scetch. 
+
+    As for reflecting on AI, I really have no qualms with it's usage other than it's ecological effects and it's effects on the art community. I've even searched for 
+green AI models because coding withot AI is excessively complicated, but alas have turned up nothing in my search. At this point I'm debating attempting to train my own
+AI model on renewable energy and ethically sourced data. That's another aspect of AI that makes me a little uncomfortable is how the data to train them is being obtained.
+I believe whole heartedly in progression and I don't think AI is going anywhere but an option that is trained on renewable energy and ethically sourced data would make me
+feel a lot better about it's usage. As an artist I would personally be willing to donate art to a green data model that asks rather than takes.
