@@ -3,21 +3,19 @@
 // Found at: https://editor.p5js.org/mrm029/sketches/rk8upjm9m
 
 //--------VARIABLES--------//
-let spaghettiImg = [];
-let plateImg = [];
+let spaghettiImg;
+let plateImg;
 let spaghettiX = 0;
 let spaghettiY = 0;
 let plateX = 0;
 let plateY = 0;
 timeLeft = 10;
-let theFont;
 let timerInterval;
 let shapes = [];
 let totalShapeCount = 500;
 function preload() {
-    spaghettiImg = loadImage('assets/images/FlyingSpaghettiMonster.jpg');
-    plateImg = loadImage('assets/images/Plate.jpg');
-    theFont = loadFont('assets/fonts/font.ttf');
+    spaghettiImg = loadImage('assets/images/FlyingSpaghettiMonster.png');
+    plateImg = loadImage('assets/images/Plate.png');
 }
 
 //--------SETUP & DRAW--------//
@@ -37,11 +35,7 @@ function setup() {
     shapes.push(createShape("ellipse"));
     shapes.push(createShape("triangle"));
 
-       spaghettiImg.resize(100, 0);
-    image(spaghettiImg, spaghettiX, spaghettiY);
 
-    plateImg.resize(200, 0);
-    image(plateImg, plateX, plateY);
   }
 }
 
@@ -76,15 +70,16 @@ function draw() {
 //--------Title/Name Text--------//
   fill(255);
   textAlign(LEFT, TOP);
-  textFont(theFont);
   textSize(32);
   text("Shattered Glass", 20, 30);
   textAlign(RIGHT, BOTTOM);
   text("Adam Jackson", width - 20, height - 30);
 
-}
+  spaghettiImg.resize(100, 0);
+  image(spaghettiImg, spaghettiX, spaghettiY);
 
-
+  plateImg.resize(200, 0);
+  image(plateImg, plateX, plateY);
 
 //--------Character Movement--------//
   if (isKeyPressed) {
@@ -109,7 +104,8 @@ function draw() {
             }
             spaghettiY += 5;
         }
-    }
+    }    
+}
 
 function randomMovement() {
     //console.log("moving plate");
