@@ -16,25 +16,30 @@ let foodItems = [];
 let weaponImages = [];
 let weaponItems = [];
 
-let playerSpeed = 1;
+let playerSpeed = 2; // Increased player speed for better gameplay for this assingnment
 let currentFrame = 0;
 let frameCounter = 0;
-let frameDelay = 20;
+let frameDelay = 10; // Reduced frame delay to match faster player speed
 
-let timer = 15 * 60; // 15 seconds at 60fps
+let timer = 20 * 60;
 let score = 0;
 let gameOver = false;
-let playerCollisionSize = 32; // approximate player sprite size
+let playerCollisionSize = 32;
 
-//Note add later: 
+//Note: add/work on later: (in order of importance).
+  // Left, right, and up movement and idle animations for player
+  // Fix camera to player--->zoom in on player and work on camera movement
   // let playerHealth = 100;
+  // weapon collision and equipping weapons
   // let zombieIdle = [];
   // let zombieX = 0;
   // let zombieY = 0;
   // let zombieImage;
   // let zombieWalk = [];
-  // let zombieSpeed = 2;
-  // Fix camera to player
+  // let zombieSpeed = 2;  
+  // Attack animations and mechanics (zombie and player)
+  // zombies chasing and attacking player
+  // collision system with zombies, player, and weapons
 
 function preload() {
   for (let i = 0; i < 6; i++) {
@@ -81,8 +86,8 @@ function draw() {
     }
   }
   
-  // Only draw game world if not game over
   if (!gameOver) {
+    push();
     translate(-playerX + width/2, -playerY + height/2);
     
     for (let i = 0; i < foodItems.length; i++) {
@@ -119,7 +124,7 @@ function draw() {
       image(playerIdle[currentFrame], playerX, playerY);
     }
     
-    // Check collision with food
+    // Check for collision with food
     for (let i = foodItems.length - 1; i >= 0; i--) {
       if (dist(playerX, playerY, foodItems[i].x, foodItems[i].y) < playerCollisionSize) {
         score++;
@@ -127,15 +132,6 @@ function draw() {
         spawnFood();
       }
     }
-    
-    // Display score and timer in top right (in screen coordinates)
-    push();
-    resetMatrix();
-    fill(0);
-    textSize(24);
-    textAlign(RIGHT);
-    text("Score: " + score, width - 10, 30);
-    text("Time: " + ceil(timer / 60), width - 10, 60);
     pop();
   }
   else {
@@ -144,8 +140,17 @@ function draw() {
     textSize(48);
     textAlign(CENTER);
     text("GAME OVER", width / 2, height / 2 - 50);
-    
+
     textSize(32);
     text("Final Score: " + score, width / 2, height / 2 + 30);
+  }
+  
+  // Display score and timer
+  if (!gameOver) {
+    fill(0);
+    textSize(24);
+    textAlign(RIGHT);
+    text("Score: " + score, width - 10, 30);
+    text("Time: " + ceil(timer / 60), width - 10, 60);
   }
 }
