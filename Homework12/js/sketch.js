@@ -1,12 +1,6 @@
 //Homework 12 - 3D Shapes
 
 //Variables
-let img;
-let img2;
-
-let x = 0;
-let y = 0;
-let z = 0;
 
 function preload() {
     img = loadImage("images/PlanetGreen.png");
